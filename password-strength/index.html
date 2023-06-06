@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="app, landing, corporate, Creative, Html Template, Template">
+    <meta name="author" content="web-themes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title -->
+    <title>Strength Password</title>
+
+    <!-- favicon -->
+    <!-- <link href="img/favicon.png" type="image/png" rel="icon"> -->
+
+    <!-- all css here -->
+    <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    
+    <div class="container">
+        <div>
+            <h2>Password Strength!</h2>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password">
+                <button type="submit"><i class="far fa-chevron-right"></i></button>
+            </div>
+            <p id="mes">Password is <span id="strength"></span></p>
+        </div>
+    </div>
+    
+
+    <script>
+        
+        var pass = document.getElementById("password");
+        var mes = document.getElementById("mes");
+        var str = document.getElementById("strength"); 
+
+        pass.addEventListener('input', () => {
+            if (pass.value.length > 0) {
+                mes.style.display = "block";
+            }
+            else {
+                mes.style.display = "none";
+            }
+            if (pass.value.length < 4) {
+                str.innerHTML = "weak";
+                pass.style.color = "#ff5925";
+                mes.style.color = "#ff5925";
+            }
+            else if (pass.value.length >= 4 && pass.value.length < 8) {
+                str.innerHTML = "medium";
+                pass.style.color = "yellow";
+                mes.style.color = "yellow";
+            }
+            else if (pass.value.length >= 8) {
+                str.innerHTML = "strong";
+                pass.style.color = "#26d730";
+                mes.style.color = "#26d730";
+            }
+        } )
+
+
+    </script>
+
+</body>
+</html>
